@@ -14,7 +14,7 @@ displaying their contact information and Google ratings/reviews.
 
 ## Objective
 The primary objective for this project was to learn the basics of Next.js and Typescript, having
-just recently finished an Instagram pseudo-clone in Create React App and non-typed Javscript. 
+just recently finished an Instagram pseudo-clone in Create React App and non-typed Javascript. 
 Throughout university the languages we mostly worked in were statically 
 typed languages such as C and Java and during the Instagram project I regularly found myself
 missing the explicit declaration of types in normal Javascript - hence thought learning Typescript
