@@ -10,7 +10,7 @@ displaying their contact information and Google ratings/reviews.
 ## Tech stack
 - Vercel, Next.js
 - Typescript
-- Tailwind 
+- Material UI
 
 ## Objective
 The primary objective for this project was to learn the basics of Next.js and Typescript, having
