@@ -1,8 +1,14 @@
 import axios from 'axios'
 
-const URL = 'https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary'
+const URL = {
+  0: 'https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary',
+  1: 'https://travel-advisor.p.rapidapi.com/hotels/list-in-boundary',
+  2: 'https://travel-advisor.p.rapidapi.com/attractions/list-in-boundary',
+}
 
-const getPlacesData = async (bounds) => {
+const getPlacesData = async (bounds, type) => {
+  console.log(type)
+
   console.log('getting places data')
   const { ne, sw } = bounds
   const options = {
@@ -20,7 +26,7 @@ const getPlacesData = async (bounds) => {
   }
   try {
     // request
-    const response = await axios.get(URL, options)
+    const response = await axios.get(URL[type], options)
     return response.data.data
   } catch (error) {
     console.log(error)

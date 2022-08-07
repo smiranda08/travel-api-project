@@ -13,10 +13,15 @@ import {
 import { useState } from 'react'
 import PlaceDetails from '../PlaceDetails'
 
-const List = ({ places, childClicked, isLoading }) => {
-  const [type, setType] = useState('')
-  const [rating, setRating] = useState('')
-
+const List = ({
+  places,
+  childClicked,
+  isLoading,
+  type,
+  setType,
+  rating,
+  setRating,
+}) => {
   const [placeRefs, setPlaceRefs] = useState([])
 
   useEffect(() => {
@@ -45,16 +50,19 @@ const List = ({ places, childClicked, isLoading }) => {
                   Type
                 </InputLabel>
                 <Select value={type} onChange={(e) => setType(e.target.value)}>
-                  <MenuItem value="restaurants">Restaurants</MenuItem>
-                  <MenuItem value="hotels">Hotels</MenuItem>
-                  <MenuItem value="attractions">Attractions</MenuItem>
+                  <MenuItem value="0">Restaurants</MenuItem>
+                  <MenuItem value="1">Hotels</MenuItem>
+                  <MenuItem value="2">Attractions</MenuItem>
                 </Select>
               </FormControl>
               <FormControl className="w-1/4" size="small">
                 <InputLabel className="bg-white">Rating</InputLabel>
                 <Select
                   value={rating}
-                  onChange={(e) => setRating(e.target.value)}
+                  onChange={(e) => {
+                    setRating(e.target.value)
+                    console.log({ rating })
+                  }}
                 >
                   <MenuItem value={0}>All</MenuItem>
                   <MenuItem value={3}>Above 3.0</MenuItem>
