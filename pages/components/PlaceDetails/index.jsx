@@ -36,6 +36,12 @@ const PlaceDetails = ({ place }) => {
           {place.name}
         </Typography>
         <Box className="flex justify-between">
+          <Rating value={Number(place?.rating)} readOnly size="small" />
+          <Typography gutterBottom variant="subtitle1">
+            out of {place.num_reviews} reviews
+          </Typography>
+        </Box>
+        <Box className="flex justify-between">
           <Typography variant="subtitle1">Price</Typography>
           <Typography gutterBottom variant="subtitle1">
             {place.price_level}

@@ -50,6 +50,7 @@ export default function Home() {
             coordinates={coordinates}
             setCoordinates={setCoordinates}
             setBounds={setBounds}
+            places={places}
           />
         </Grid>
       </Grid>
