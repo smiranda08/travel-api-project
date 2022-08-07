@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import Map from './components/Map'
 import List from './components/List'
+import Script from 'next/script'
 
 import { getPlacesData } from '../services/api-index'
 
