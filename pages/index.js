@@ -25,30 +25,31 @@ export default function Home() {
         setCoordinates({ lat: latitude, lng: longitude })
       }
     )
-
-    // note: since coordinates is passed down to the Maps component, which has a function that updates the bounds onChange of the Map center,
-    // a consequence of the above code block is that the bounds variable in this component is updated too
   }, [])
 
   /** Listens for updates in the map centre change */
   useEffect(() => {
-    setIsLoading(true)
-    getPlacesData(bounds, type).then((data) => {
-      setPlaces(data)
-      setIsLoading(false)
-      setFilteredPlaces([])
-    })
-  }, [coordinates, bounds, type])
+    if (bounds.sw && bounds.ne) {
+      setIsLoading(true)
+      getPlacesData(bounds, type).then((data) => {
+        setPlaces(data?.filter((place) => place.name && place.num_reviews > 0))
+        setIsLoading(false)
+        setFilteredPlaces([])
+      })
+    }
+  }, [bounds, type])
 
   useEffect(() => {
     const filteredPlaces = places?.filter((place) => place.rating >= rating)
     setFilteredPlaces(filteredPlaces)
   }, [places, rating])
 
+  console.log({ places, filteredPlaces })
+
   return (
     <>
       <CssBaseline />
-      <Header />
+      <Header setCoordinates={setCoordinates} />
       <Grid container spacing={3} style={{ width: '100%' }}>
         <Grid item xs={12} md={4}>
           <List

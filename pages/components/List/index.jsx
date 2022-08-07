@@ -35,7 +35,7 @@ const List = ({
   return (
     <>
       <div className="flex flex-col list-container p-6 space-y-4 h-[100vh]">
-        <p className="text-3xl">Restaurents, Hotels and Attractions nearby</p>
+        <p className="text-3xl">Restaurents, Hotels and Attractions Near You</p>
 
         {isLoading ? (
           <div className="h-[600px] flex justify-center items-center">
