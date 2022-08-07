@@ -17,8 +17,9 @@ import {
 } from '@mui/icons-material'
 import { Rating } from '@mui/material'
 
-const PlaceDetails = ({ place }) => {
-  console.log(place)
+const PlaceDetails = ({ place, selected, refProp }) => {
+  if (selected)
+    refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
   return (
     <Card elevation={6}>

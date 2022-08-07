@@ -4,7 +4,13 @@ import { Paper, Typography, useMediaQuery } from '@mui/material'
 import { LocationOnOutlined } from '@mui/icons-material'
 import { Rating } from '@mui/material'
 
-const Map = ({ setCoordinates, coordinates, setBounds, places }) => {
+const Map = ({
+  setCoordinates,
+  coordinates,
+  setBounds,
+  places,
+  setChildClicked,
+}) => {
   const isDesktop = useMediaQuery('(min-width:600px)')
   const apiKey = 'AIzaSyAbn_WBgbM69aXq3XFtFgipqoacEIOIW1U'
 
@@ -23,11 +29,12 @@ const Map = ({ setCoordinates, coordinates, setBounds, places }) => {
         center={coordinates}
         options={''}
         onChange={(e) => {
-          console.log(e)
           setCoordinates({ lat: e.center.lat, lng: e.center.lng })
           setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw })
         }}
-        onChildClick={''}
+        onChildClick={(child) => {
+          setChildClicked(child)
+        }}
       >
         {places?.map((place, i) => (
           <div
@@ -35,6 +42,7 @@ const Map = ({ setCoordinates, coordinates, setBounds, places }) => {
             className="absolute z-[1] hover:z-[2] hover:border-2"
             lat={Number(place.latitude)}
             lng={Number(place.longitude)}
+            style={{ transform: 'translate(-50%,-50%)' }}
           >
             {!isDesktop ? (
               <LocationOnOutlined color="primary" fontSize="large" />

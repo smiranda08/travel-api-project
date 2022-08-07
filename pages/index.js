@@ -2,16 +2,16 @@ import { CssBaseline, Grid } from '@mui/material'
 import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import Map from './components/Map'
-import PlaceDetails from './components/PlaceDetails'
 import List from './components/List'
 
 import { getPlacesData } from '../services/api-index'
 
 export default function Home() {
   const [places, setPlaces] = useState([])
-
   const [coordinates, setCoordinates] = useState({})
   const [bounds, setBounds] = useState({})
+  const [childClicked, setChildClicked] = useState(0)
+  const [isLoading, setIsLoading] = useState(false)
 
   /** Initializes coordinates to user's location on page load
    * Reference: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
@@ -29,11 +29,10 @@ export default function Home() {
 
   /** Listens for updates in the map centre change */
   useEffect(() => {
-    console.log(coordinates, bounds)
-
+    setIsLoading(true)
     getPlacesData(bounds).then((data) => {
-      console.log(data)
       setPlaces(data)
+      setIsLoading(false)
     })
   }, [coordinates, bounds])
 
@@ -43,7 +42,11 @@ export default function Home() {
       <Header />
       <Grid container spacing={3} style={{ width: '100%' }}>
         <Grid item xs={12} md={4}>
-          <List places={places} />
+          <List
+            places={places}
+            childClicked={childClicked}
+            isLoading={isLoading}
+          />
         </Grid>
         <Grid item xs={12} md={8} className="h-screen">
           <Map
@@ -51,6 +54,7 @@ export default function Home() {
             setCoordinates={setCoordinates}
             setBounds={setBounds}
             places={places}
+            setChildClicked={setChildClicked}
           />
         </Grid>
       </Grid>

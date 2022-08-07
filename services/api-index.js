@@ -3,8 +3,7 @@ import axios from 'axios'
 const URL = 'https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary'
 
 const getPlacesData = async (bounds) => {
-  console.log('hello', bounds)
-
+  console.log('getting places data')
   const { ne, sw } = bounds
   const options = {
     method: 'GET',
@@ -15,7 +14,7 @@ const getPlacesData = async (bounds) => {
       tr_longitude: ne?.lng,
     },
     headers: {
-      'X-RapidAPI-Key': '8486253a80msh305f06e27d75285p187279jsnf9a4027e44c8',
+      'X-RapidAPI-Key': '6f8f765509msh7807603306cb3b3p13ada1jsn58716dcbdbe4',
       'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com',
     },
   }
