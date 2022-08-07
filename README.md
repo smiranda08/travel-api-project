@@ -15,7 +15,7 @@ and website.
 
 ## Objective
 The primary objective for this project was to work in the Next.js development environment and get more practice
-with fetching data from APIs.
+with fetching data from APIs and React/front-end programming in general.
 
 ## Link
 View the deployment here https://travel-api-project.vercel.app/.
