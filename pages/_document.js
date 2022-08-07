@@ -15,10 +15,10 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
           />
-          <script
+          <Script
             async
             src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAbn_WBgbM69aXq3XFtFgipqoacEIOIW1U"
-          ></script>
+          ></Script>
         </Head>
         <body>
           <Main />
