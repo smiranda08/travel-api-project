@@ -14,7 +14,7 @@ and website.
 - Tailwind
 
 ## Objective
-The primary objective for this project was to work in the Next.js development environment and get more practice
+The primary objective for this project was to try out the Next.js development environment and get more practice
 with fetching data from APIs and React/front-end programming in general.
 
 ## Link
