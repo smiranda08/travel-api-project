@@ -4,7 +4,7 @@
 This practice project implements a basic travel companion single page application. 
 It features the ability for users to search for a particular locale and the app
 then shows the result on the map with major hotels, restaurants, bars and attractions
-embedded on the map. Additionally a left-sidebar  lists cards for each of these points of interest
+embedded. Additionally a left-sidebar  lists cards for each of these points of interest
 displaying their contact information and Google ratings/reviews with links to both their TripAdvisor page 
 and website.
 
