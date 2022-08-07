@@ -24,7 +24,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
   return (
     <Card elevation={6}>
       <CardMedia
-        title={place.name}
+        title={place?.name}
         style={{ height: 350 }}
         image={
           place.photo
@@ -34,24 +34,24 @@ const PlaceDetails = ({ place, selected, refProp }) => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5">
-          {place.name}
+          {place?.name}
         </Typography>
         <Box className="flex justify-between">
           <Rating value={Number(place?.rating)} readOnly size="small" />
           <Typography gutterBottom variant="subtitle1">
-            out of {place.num_reviews} reviews
+            out of {place?.num_reviews} reviews
           </Typography>
         </Box>
         <Box className="flex justify-between">
           <Typography variant="subtitle1">Price</Typography>
           <Typography gutterBottom variant="subtitle1">
-            {place.price_level}
+            {place?.price_level}
           </Typography>
         </Box>
         <Box className="flex justify-between">
           <Typography variant="subtitle1">Ranking</Typography>
           <Typography gutterBottom variant="subtitle1">
-            {place.ranking}
+            {place?.ranking}
           </Typography>
         </Box>
 
